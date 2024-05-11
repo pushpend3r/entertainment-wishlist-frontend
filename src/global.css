@@ -1,0 +1,4 @@
+.backdrop {
+  background-size: cover;
+  backdrop-filter: blur(10px);
+}
