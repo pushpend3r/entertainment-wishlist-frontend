@@ -1,6 +1,5 @@
 import BCard from "react-bootstrap/Card";
-import { Movie } from "../pages/Movie/types";
-import { TVShow } from "../pages/TVShow/types";
+import { Movie, TVShow } from "../types";
 
 interface Props extends Partial<Movie & TVShow> {
   onClick: (id: Movie["id"] | TVShow["id"]) => void;
