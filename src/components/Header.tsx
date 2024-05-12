@@ -3,11 +3,13 @@ import { Button } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import useIsUserLoggedIn from "../hooks/useIsUserLoggedIn";
+import { useEffect } from "react";
 
 function Header() {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   const isUserLoggedIn = useIsUserLoggedIn();
 
@@ -22,6 +24,10 @@ function Header() {
 
     navigate("/");
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <Navbar expand="lg" className="bg-body-tertiary">

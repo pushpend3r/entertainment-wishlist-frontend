@@ -1,4 +1,4 @@
-import { OperationVariables, useMutation, useQuery } from "@apollo/client";
+import { NetworkStatus, OperationVariables, useMutation, useQuery } from "@apollo/client";
 import { useEffect } from "react";
 import { Col, Container, Row, Stack } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
@@ -26,10 +26,12 @@ function MoviePage() {
     loading,
     data,
     refetch: refetchMovieDetails,
+    networkStatus,
   } = useQuery<GetMovieDetails>(GET_MOVIE_DETAILS, {
     variables: {
       movieId,
     },
+    notifyOnNetworkStatusChange: true,
   });
 
   const [addToWishlist, addToWishlistResponse] = useMutation(ADD_TO_WISHLIST);
@@ -86,7 +88,7 @@ function MoviePage() {
     refetchMovieDetails();
   };
 
-  if (loading) return <Loader />;
+  if (loading && networkStatus !== NetworkStatus.refetch) return <Loader />;
 
   const {
     name,
@@ -115,13 +117,21 @@ function MoviePage() {
           <Stack direction="horizontal" gap={3} className="justify-content-between">
             <Button
               onClick={handleWatchedListButtonClick}
-              loading={addToWatchedListResponse.loading || removeFromWatchedListResponse.loading}
+              loading={
+                addToWatchedListResponse.loading ||
+                removeFromWatchedListResponse.loading ||
+                networkStatus === NetworkStatus.refetch
+              }
             >
               {isWatched ? "Remove from Watched List" : "Add to Watched List"}
             </Button>
             <Button
               onClick={handleWishListButtonClick}
-              loading={addToWishlistResponse.loading || removeFromWishlistResponse.loading}
+              loading={
+                addToWishlistResponse.loading ||
+                removeFromWishlistResponse.loading ||
+                networkStatus === NetworkStatus.refetch
+              }
             >
               {isWishlisted ? "Remove from Wish List" : "Add to Wish List"}
             </Button>
