@@ -9,7 +9,7 @@ import { GetTrending } from "./types";
 import Loader from "../../components/Loader";
 
 function HomePage() {
-  const { data, loading } = useQuery<GetTrending>(GET_TRENDING);
+  const { data, loading } = useQuery<GetTrending>(GET_TRENDING, { fetchPolicy: "network-only" });
   const navigate = useNavigate();
 
   if (loading) return <Loader />;
