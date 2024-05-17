@@ -46,6 +46,8 @@ const getNewTokens = async (): Promise<Tokens> => {
 const handle401Errors = onError((error) => {
   const { graphQLErrors, forward, operation } = error;
 
+  if (operation.operationName === "LOGIN") return;
+
   // skip non 401 errors
   if (graphQLErrors?.[0]?.extensions?.code !== "UNAUTHENTICATED") return;
 

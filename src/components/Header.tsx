@@ -46,7 +46,10 @@ function Header() {
                   <NavLink to="/wanna-watch">Wanna Watch</NavLink>
                 </Nav.Link>
                 <Nav.Link>
-                  <NavLink to="/already-watched"> Already Watched</NavLink>
+                  <NavLink to="/already-watched">Already Watched</NavLink>
+                </Nav.Link>
+                <Nav.Link>
+                  <NavLink to="/password-change">Update Change</NavLink>
                 </Nav.Link>
                 <Button onClick={handleLogOutButtonClick}>Logout</Button>
               </>

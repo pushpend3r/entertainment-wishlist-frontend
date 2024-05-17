@@ -28,9 +28,9 @@ function LoginPage() {
     const password = data.get("password");
 
     showToast(login({ variables: { email, password } }), {
-      error: "failed to log you in",
       success: "logged in",
       pending: "logging in",
+      error: "failed to log you in",
     });
   };
 
