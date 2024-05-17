@@ -7,6 +7,7 @@ import { TokenType, Tokens } from "../../../types";
 import { GET_NEW_TOKENS } from "./queries";
 import { FailedOperation, GetNewTokens } from "./types";
 import { getToken } from "../../../utils";
+import { router } from "../../../main";
 
 let isRefreshing = false;
 let failedOperations: FailedOperation[] = [];
@@ -31,6 +32,8 @@ const getNewTokens = async (): Promise<Tokens> => {
   } catch (error: unknown) {
     localStorage.removeItem(TokenType.ACCESS_TOKEN);
     localStorage.removeItem(TokenType.REFRESH_TOKEN);
+
+    router.navigate("/login");
 
     // so that useLocalStorage can be kicked
     window.dispatchEvent(new StorageEvent("storage", { key: TokenType.ACCESS_TOKEN, newValue: null }));

@@ -9,7 +9,7 @@ import apolloClient from "./apollo";
 import routes from "./routes.tsx";
 import { ToastContainer } from "react-toastify";
 
-const router = createBrowserRouter(routes);
+export const router = createBrowserRouter(routes);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
