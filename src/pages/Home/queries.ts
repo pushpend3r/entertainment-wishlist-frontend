@@ -16,6 +16,8 @@ export const GET_TRENDING = gql`
         overview
         posterUrl
         startAirDate
+        lastAirDate
+        inProduction
       }
     }
   }

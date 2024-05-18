@@ -1,9 +1,9 @@
-import { Container, Row } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 
 function Footer() {
   return (
     <Container fluid>
-      <Row className="p-3 justify-content-center">Created by Pushpender Singh</Row>
+      <p className="d-flex p-0 m-0 mt-5 pb-3 justify-content-center">Created by Pushpender Singh</p>
     </Container>
   );
 }

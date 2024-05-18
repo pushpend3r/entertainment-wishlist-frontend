@@ -90,6 +90,7 @@ function TVShowPage() {
     startAirDate,
     lastAirDate,
     inProduction,
+    backdropUrl,
     posterUrl,
     seasons,
     genres,
@@ -105,6 +106,10 @@ function TVShowPage() {
   return (
     <Container fluid className="h-auto">
       <Row className="pt-3">
+        <div
+          className="background-poster w-100 h-100 position-absolute top-0 start-0 p-0 backdrop"
+          style={{ zIndex: -1, backgroundImage: `url(${backdropUrl})` }}
+        ></div>
         <Col className="col-12 col-md-4 mb-3">
           <img src={posterUrl} alt={name} width={"100%"} className="object-fit-cover rounded shadow" />
           <Row className="p-3">

@@ -1,4 +1,60 @@
 .backdrop {
   background-size: cover;
-  backdrop-filter: blur(10px);
+  background-position: center;
+  filter: blur(2px) brightness(0.3);
+}
+
+a,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+.card-title,
+span,
+label,
+button {
+  color: rgb(230, 217, 217) !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  position: relative;
+  background: linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
+    linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
+    linear-gradient(27deg, #222 5px, transparent 5px) 0px 10px,
+    linear-gradient(207deg, #222 5px, transparent 5px) 10px 5px,
+    linear-gradient(90deg, #1b1b1b 10px, transparent 10px),
+    linear-gradient(
+      #1d1d1d 25%,
+      #1a1a1a 25%,
+      #1a1a1a 50%,
+      transparent 50%,
+      transparent 75%,
+      #242424 75%,
+      #242424
+    );
+  background-color: #131313;
+  background-size: 20px 20px;
+  backdrop-filter: blur(2px);
+}
+
+.card {
+  background-color: transparent;
+}
+
+.navbar-toggler {
+  border-color: rgb(230, 217, 217) !important;
+}
+
+nav.navbar {
+  background-color: transparent !important;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }

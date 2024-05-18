@@ -8,6 +8,7 @@ import { Container, Form } from "react-bootstrap";
 import Button from "../../components/Button";
 import { UpdatePassword } from "./types";
 import { UPDATE_PASSWORD } from "./queries";
+import withAuth from "../../components/withAuth";
 
 function PasswordChangePage() {
   const [updatePassword, { data, loading }] = useMutation<UpdatePassword>(UPDATE_PASSWORD);
@@ -71,4 +72,6 @@ function PasswordChangePage() {
   );
 }
 
-export default PasswordChangePage;
+const WithAuth = withAuth(PasswordChangePage);
+
+export default WithAuth;

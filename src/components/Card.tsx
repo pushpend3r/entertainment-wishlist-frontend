@@ -5,16 +5,26 @@ interface Props extends Partial<Movie & TVShow> {
   onClick: (id: Movie["id"] | TVShow["id"]) => void;
 }
 
-function Card({ id, name, posterUrl, releaseDate, overview, startAirDate, lastAirDate, onClick }: Props) {
+function Card({
+  id,
+  name,
+  posterUrl,
+  releaseDate,
+  overview,
+  startAirDate,
+  lastAirDate,
+  onClick,
+  inProduction,
+}: Props) {
   const releaseYear = releaseDate ? new Date(releaseDate).getFullYear() : "";
   const startYear = startAirDate ? new Date(startAirDate).getFullYear() : "";
   const lastYear = lastAirDate ? new Date(lastAirDate).getFullYear() : "";
 
-  const title = `${name} (${releaseYear || startYear + "-" + lastYear})`;
+  const title = `${name} (${releaseYear || startYear + "-" + `${!inProduction ? lastYear : "continue"}`})`;
 
   return (
     <BCard style={{ cursor: "pointer" }} onClick={() => onClick(id!)}>
-      <BCard.Img variant="top" src={posterUrl} />
+      <BCard.Img variant="top" src={posterUrl} className="rounded" />
       <BCard.Body>
         <BCard.Title>{title}</BCard.Title>
         <BCard.Text

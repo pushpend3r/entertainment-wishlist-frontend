@@ -51,6 +51,7 @@ function HomePage() {
               posterUrl={tvshow.posterUrl}
               startAirDate={tvshow.startAirDate}
               lastAirDate={tvshow.lastAirDate}
+              inProduction={tvshow.inProduction}
               onClick={handleTVShowCardClick}
             />
           </Col>

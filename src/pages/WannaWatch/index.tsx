@@ -6,6 +6,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import Card from "../../components/Card";
 import { Movie, TVShow } from "../../types";
 import Loader from "../../components/Loader";
+import withAuth from "../../components/withAuth";
 
 function WannaWatchPage() {
   const { data, loading } = useQuery<GetWannaWatchMedia>(GET_WANNA_WATCH_MEDIA, {
@@ -63,4 +64,6 @@ function WannaWatchPage() {
   );
 }
 
-export default WannaWatchPage;
+const WithAuth = withAuth(WannaWatchPage);
+
+export default WithAuth;
