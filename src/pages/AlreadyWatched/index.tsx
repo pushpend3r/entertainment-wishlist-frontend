@@ -1,5 +1,7 @@
 import { useQuery } from "@apollo/client";
-import { Col, Container, Row } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 import { useNavigate } from "react-router-dom";
 
 import { GET_ALREADY_WATCHED_MEDIA } from "./queries";

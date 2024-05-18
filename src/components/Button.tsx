@@ -1,4 +1,5 @@
-import { ButtonProps, Button as BButton, Spinner } from "react-bootstrap";
+import Spinner from "react-bootstrap/Spinner";
+import { ButtonProps, default as BButton } from "react-bootstrap/Button";
 
 interface Props extends ButtonProps {
   loading?: boolean;

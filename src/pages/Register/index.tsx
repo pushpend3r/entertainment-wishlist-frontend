@@ -1,11 +1,13 @@
 import { useMutation } from "@apollo/client";
 import { FormEvent, useEffect } from "react";
-import { Button, Container, Form } from "react-bootstrap";
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
 import { REGISTER } from "./queries";
 import { useNavigate } from "react-router-dom";
 import { useLocalStorage } from "@uidotdev/usehooks";
 import { showToast } from "../../utils";
 import { Register } from "./types";
+import Button from "../../components/Button";
 
 function RegisterPage() {
   const [register, { data }] = useMutation<Register>(REGISTER);

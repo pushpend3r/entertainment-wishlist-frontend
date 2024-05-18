@@ -4,7 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { FormEvent, useEffect } from "react";
 import { showToast } from "../../utils";
 import Loader from "../../components/Loader";
-import { Container, Form } from "react-bootstrap";
+
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
+
 import Button from "../../components/Button";
 import { UpdatePassword } from "./types";
 import { UPDATE_PASSWORD } from "./queries";

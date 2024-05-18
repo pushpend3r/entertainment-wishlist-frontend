@@ -1,11 +1,11 @@
 import { useLocalStorage } from "@uidotdev/usehooks";
-import { Button } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import useIsUserLoggedIn from "../hooks/useIsUserLoggedIn";
 import { useEffect } from "react";
+import Button from "./Button";
 
 function Header() {
   const navigate = useNavigate();

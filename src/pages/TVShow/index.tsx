@@ -9,7 +9,12 @@ import {
   REMOVE_FROM_WISHLIST,
 } from "./queries";
 import useIsUserLoggedIn from "../../hooks/useIsUserLoggedIn";
-import { Col, Container, Row, Stack } from "react-bootstrap";
+
+import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Stack from "react-bootstrap/Stack";
+
 import Button from "../../components/Button";
 import { GetTVShowDetails } from "./types";
 import Loader from "../../components/Loader";

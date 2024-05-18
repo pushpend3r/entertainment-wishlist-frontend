@@ -1,6 +1,9 @@
 import { useMutation } from "@apollo/client";
 import { FormEvent, useEffect } from "react";
-import { Button, Container, Form } from "react-bootstrap";
+
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
+
 import { useNavigate } from "react-router-dom";
 import { useLocalStorage } from "@uidotdev/usehooks";
 
@@ -8,6 +11,7 @@ import { LOGIN } from "./queries";
 import { showToast } from "../../utils";
 import { Login } from "./types";
 import Loader from "../../components/Loader";
+import Button from "../../components/Button";
 
 function LoginPage() {
   const [login, { data, loading }] = useMutation<Login>(LOGIN);

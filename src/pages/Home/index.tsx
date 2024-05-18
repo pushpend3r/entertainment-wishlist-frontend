@@ -1,6 +1,9 @@
 import { useQuery } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
-import { Col, Container, Row } from "react-bootstrap";
+
+import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 
 import { GET_TRENDING } from "./queries";
 import Card from "../../components/Card";

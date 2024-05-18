@@ -1,6 +1,11 @@
 import { NetworkStatus, OperationVariables, useMutation, useQuery } from "@apollo/client";
 import { useEffect } from "react";
-import { Col, Container, Row, Stack } from "react-bootstrap";
+
+import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Stack from "react-bootstrap/Stack";
+
 import { useNavigate, useParams } from "react-router-dom";
 
 import {
