@@ -12,10 +12,8 @@ import { UPDATE_PASSWORD } from "./queries";
 function PasswordChangePage() {
   const [updatePassword, { data, loading }] = useMutation<UpdatePassword>(UPDATE_PASSWORD);
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [_accessToken, setAccessToken] = useLocalStorage("accessToken");
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [_refreshToken, setRefreshToken] = useLocalStorage("refreshToken");
+  const [accessToken, setAccessToken] = useLocalStorage("accessToken");
+  const [refreshToken, setRefreshToken] = useLocalStorage("refreshToken");
 
   const navigate = useNavigate();
 
@@ -27,7 +25,7 @@ function PasswordChangePage() {
     const oldPassword = data.get("oldPassword");
     const newPassword = data.get("newPassword");
 
-    showToast(updatePassword({ variables: { oldPassword, newPassword } }), {
+    showToast(updatePassword({ variables: { oldPassword, newPassword, accessToken, refreshToken } }), {
       success: "password updated",
       pending: "updating password",
     });
