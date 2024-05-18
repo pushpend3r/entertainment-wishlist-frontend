@@ -8,7 +8,7 @@ import { Container, Form } from "react-bootstrap";
 import Button from "../../components/Button";
 import { UpdatePassword } from "./types";
 import { UPDATE_PASSWORD } from "./queries";
-import withAuth from "../../components/withAuth";
+import withAuth from "../../hocs/withAuth";
 
 function PasswordChangePage() {
   const [updatePassword, { data, loading }] = useMutation<UpdatePassword>(UPDATE_PASSWORD);

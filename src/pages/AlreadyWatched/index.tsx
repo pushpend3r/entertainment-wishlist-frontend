@@ -7,7 +7,7 @@ import { GetAlreadyWatchedMedia } from "./types";
 import Card from "../../components/Card";
 import { Movie, TVShow } from "../../types";
 import Loader from "../../components/Loader";
-import withAuth from "../../components/withAuth";
+import withAuth from "../../hocs/withAuth";
 
 function AlreadyWatchedPage() {
   const { data, loading } = useQuery<GetAlreadyWatchedMedia>(GET_ALREADY_WATCHED_MEDIA, {

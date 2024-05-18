@@ -1,15 +1,17 @@
+/* eslint-disable react-refresh/only-export-components */
 import { RouteObject } from "react-router-dom";
+import React from "react";
 
 import Layout from "./components/Layout";
 
-import AlreadyWatchedPage from "./pages/AlreadyWatched";
-import LoginPage from "./pages/Login";
-import HomePage from "./pages/Home";
-import MoviePage from "./pages/Movie";
-import WannaWatchPage from "./pages/WannaWatch";
-import TVShowPage from "./pages/TVShow";
-import RegisterPage from "./pages/Register";
-import PasswordChangePage from "./pages/PasswordChange";
+const AlreadyWatchedPage = React.lazy(() => import("./pages/AlreadyWatched"));
+const HomePage = React.lazy(() => import("./pages/Home"));
+const LoginPage = React.lazy(() => import("./pages/Login"));
+const MoviePage = React.lazy(() => import("./pages/Movie"));
+const WannaWatchPage = React.lazy(() => import("./pages/WannaWatch"));
+const TVShowPage = React.lazy(() => import("./pages/TVShow"));
+const RegisterPage = React.lazy(() => import("./pages/Register"));
+const PasswordChangePage = React.lazy(() => import("./pages/PasswordChange"));
 
 const routes: RouteObject[] = [
   {
