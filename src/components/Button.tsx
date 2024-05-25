@@ -9,7 +9,7 @@ function Button({ loading = false, children, ...props }: Props) {
   return (
     <BButton {...props}>
       {loading ? (
-        <Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true" />
+        <Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true" data-testid="loader" />
       ) : (
         children
       )}
