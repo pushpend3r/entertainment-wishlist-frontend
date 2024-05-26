@@ -26,7 +26,7 @@ function Card({
     <BCard style={{ cursor: "pointer" }} onClick={() => onClick(id!)}>
       <BCard.Img variant="top" src={posterUrl} className="rounded" />
       <BCard.Body>
-        <BCard.Title>{title}</BCard.Title>
+        <BCard.Title as="h2" className="h5">{title}</BCard.Title>
         <BCard.Text
           style={{
             overflow: "hidden",
@@ -36,6 +36,7 @@ function Card({
             WebkitBoxOrient: "vertical",
           }}
           title={overview}
+          as={"p"}
         >
           {overview}
         </BCard.Text>

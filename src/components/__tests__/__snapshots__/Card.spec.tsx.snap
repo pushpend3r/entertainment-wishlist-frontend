@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Card /> render 1`] = `
+<div>
+  <div
+    class="card"
+    style="cursor: pointer;"
+  >
+    <img
+      class="card-img-top rounded"
+      src="https://placehold.co/600x400"
+    />
+    <div
+      class="card-body"
+    >
+      <h2
+        class="h5 card-title"
+      >
+        sometitle (-)
+      </h2>
+      <p
+        class="card-text"
+        style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box;"
+        title="someoverview"
+      >
+        someoverview
+      </p>
+    </div>
+  </div>
+</div>
+`;
