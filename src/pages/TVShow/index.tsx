@@ -18,6 +18,7 @@ import Stack from "react-bootstrap/Stack";
 import Button from "../../components/Button";
 import { GetTVShowDetails } from "./types";
 import Loader from "../../components/Loader";
+import { ROUTES } from "../../enums/routes";
 
 function TVShowPage() {
   const params = useParams();
@@ -46,7 +47,7 @@ function TVShowPage() {
 
   const handleWatchedListButtonClick = async () => {
     if (!isUserLoggedIn) {
-      navigate("/login");
+      navigate(ROUTES.LOGIN_PAGE);
       return;
     }
 
@@ -68,7 +69,7 @@ function TVShowPage() {
 
   const handleWishListButtonClick = async () => {
     if (!isUserLoggedIn) {
-      navigate("/login");
+      navigate(ROUTES.LOGIN_PAGE);
       return;
     }
 

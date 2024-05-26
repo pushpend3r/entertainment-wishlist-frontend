@@ -3,6 +3,7 @@ import { RouteObject } from "react-router-dom";
 import React from "react";
 
 import Layout from "./components/Layout";
+import { ROUTES } from "./enums/routes";
 
 const AlreadyWatchedPage = React.lazy(() => import("./pages/AlreadyWatched"));
 const HomePage = React.lazy(() => import("./pages/Home"));
@@ -15,39 +16,38 @@ const PasswordChangePage = React.lazy(() => import("./pages/PasswordChange"));
 
 const routes: RouteObject[] = [
   {
-    path: "/",
     element: <Layout />,
     children: [
       {
-        path: "/",
+        path: ROUTES.HOME_PAGE,
         element: <HomePage />,
       },
       {
-        path: "/wanna-watch",
+        path: ROUTES.WANNA_WATCH_PAGE,
         element: <WannaWatchPage />,
       },
       {
-        path: "/already-watched",
+        path: ROUTES.ALREADY_WATCHED_PAGE,
         element: <AlreadyWatchedPage />,
       },
       {
-        path: "/register",
+        path: ROUTES.REGISTER_PAGE,
         element: <RegisterPage />,
       },
       {
-        path: "/login",
+        path: ROUTES.LOGIN_PAGE,
         element: <LoginPage />,
       },
       {
-        path: "/password-change",
+        path: ROUTES.PASSWORD_CHANGE_PAGE,
         element: <PasswordChangePage />,
       },
       {
-        path: "/movie/:id",
+        path: ROUTES.MOVIE_PAGE,
         element: <MoviePage />,
       },
       {
-        path: "/tvshow/:id",
+        path: ROUTES.TVSHOW_PAGE,
         element: <TVShowPage />,
       },
     ],

@@ -6,6 +6,7 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import useIsUserLoggedIn from "../hooks/useIsUserLoggedIn";
 import { useEffect } from "react";
 import Button from "./Button";
+import { ROUTES } from "../enums/routes";
 
 function Header() {
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ function Header() {
     setAccessToken("");
     setRefreshToken("");
 
-    navigate("/");
+    navigate(ROUTES.HOME_PAGE);
   };
 
   useEffect(() => {

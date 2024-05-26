@@ -12,6 +12,7 @@ import Button from "../../components/Button";
 import { UpdatePassword } from "./types";
 import { UPDATE_PASSWORD } from "./queries";
 import withAuth from "../../hocs/withAuth";
+import { ROUTES } from "../../enums/routes";
 
 function PasswordChangePage() {
   const [updatePassword, { data, loading }] = useMutation<UpdatePassword>(UPDATE_PASSWORD);
@@ -44,7 +45,7 @@ function PasswordChangePage() {
     setAccessToken(accessToken);
     setRefreshToken(refreshToken);
 
-    navigate("/");
+    navigate(ROUTES.HOME_PAGE);
   }, [data, navigate, setAccessToken, setRefreshToken]);
 
   if (loading) return <Loader />;

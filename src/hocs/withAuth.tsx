@@ -1,6 +1,7 @@
 import { ComponentProps, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useIsUserLoggedIn from "../hooks/useIsUserLoggedIn";
+import { ROUTES } from "../enums/routes";
 
 function withAuth<PropType>(Component: (props: PropType) => JSX.Element) {
   return (props: ComponentProps<typeof Component> & JSX.IntrinsicAttributes) => {
@@ -9,7 +10,7 @@ function withAuth<PropType>(Component: (props: PropType) => JSX.Element) {
 
     useEffect(() => {
       if (isUserLoggedIn) return;
-      navigate("/login");
+      navigate(ROUTES.LOGIN_PAGE);
     }, [isUserLoggedIn, navigate]);
 
     return <Component {...props} />;

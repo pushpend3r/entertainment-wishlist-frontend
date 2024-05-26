@@ -8,6 +8,7 @@ import { useLocalStorage } from "@uidotdev/usehooks";
 import { showToast } from "../../utils";
 import { Register } from "./types";
 import Button from "../../components/Button";
+import { ROUTES } from "../../enums/routes";
 
 function RegisterPage() {
   const [register, { data }] = useMutation<Register>(REGISTER);
@@ -53,7 +54,7 @@ function RegisterPage() {
     setAccessToken(accessToken);
     setRefreshToken(refreshToken);
 
-    navigate("/");
+    navigate(ROUTES.HOME_PAGE);
   }, [data, navigate, setAccessToken, setRefreshToken]);
 
   return (

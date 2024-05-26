@@ -19,6 +19,7 @@ import { GetMovieDetails } from "./types";
 import useIsUserLoggedIn from "../../hooks/useIsUserLoggedIn";
 import Button from "../../components/Button";
 import Loader from "../../components/Loader";
+import { ROUTES } from "../../enums/routes";
 
 function MoviePage() {
   const params = useParams();
@@ -51,7 +52,7 @@ function MoviePage() {
 
   const handleWatchedListButtonClick = async () => {
     if (!isUserLoggedIn) {
-      navigate("/login");
+      navigate(ROUTES.LOGIN_PAGE);
       return;
     }
 
@@ -73,7 +74,7 @@ function MoviePage() {
 
   const handleWishListButtonClick = async () => {
     if (!isUserLoggedIn) {
-      navigate("/login");
+      navigate(ROUTES.LOGIN_PAGE);
       return;
     }
 

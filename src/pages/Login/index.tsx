@@ -12,6 +12,7 @@ import { showToast } from "../../utils";
 import { Login } from "./types";
 import Loader from "../../components/Loader";
 import Button from "../../components/Button";
+import { ROUTES } from "../../enums/routes";
 
 function LoginPage() {
   const [login, { data, loading }] = useMutation<Login>(LOGIN);
@@ -47,7 +48,7 @@ function LoginPage() {
     setAccessToken(accessToken);
     setRefreshToken(refreshToken);
 
-    navigate("/");
+    navigate(ROUTES.HOME_PAGE);
   }, [data, navigate, setAccessToken, setRefreshToken]);
 
   if (loading) return <Loader />;
