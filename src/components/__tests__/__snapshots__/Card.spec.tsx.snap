@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`<Card /> render 1`] = `
+exports[`<Card /> > render 1`] = `
 <div>
   <div
     class="card"
@@ -20,7 +20,7 @@ exports[`<Card /> render 1`] = `
       </h2>
       <p
         class="card-text"
-        style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box;"
+        style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3;"
         title="someoverview"
       >
         someoverview
