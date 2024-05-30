@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Footer /> component > render 1`] = `
+<div>
+  <div
+    class="container-fluid"
+  >
+    <p
+      class="d-flex p-0 m-0 mt-5 pb-3 justify-content-center"
+    >
+      Created by Pushpender Singh
+    </p>
+  </div>
+</div>
+`;
