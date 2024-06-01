@@ -8,6 +8,32 @@ import { useEffect } from "react";
 import Button from "./Button";
 import { ROUTES } from "../enums/routes";
 
+export const LoggedInNavItems = [
+  {
+    to: ROUTES.WANNA_WATCH_PAGE,
+    displayValue: "Wanna Watch",
+  },
+  {
+    to: ROUTES.ALREADY_WATCHED_PAGE,
+    displayValue: "Already Watched",
+  },
+  {
+    to: ROUTES.PASSWORD_CHANGE_PAGE,
+    displayValue: "Password Change",
+  },
+] as const;
+
+export const LoggedOutNavItems = [
+  {
+    to: ROUTES.REGISTER_PAGE,
+    displayValue: "Register",
+  },
+  {
+    to: ROUTES.LOGIN_PAGE,
+    displayValue: "Login",
+  },
+] as const;
+
 function Header() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
@@ -33,8 +59,8 @@ function Header() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand>
-          <NavLink to="/">Entertainment Wishlist</NavLink>
+        <Navbar.Brand as="div">
+          <NavLink to={ROUTES.HOME_PAGE}>Entertainment Wishlist</NavLink>
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -43,25 +69,20 @@ function Header() {
           <Nav className="ms-auto">
             {isUserLoggedIn ? (
               <>
-                <Nav.Link>
-                  <NavLink to="/wanna-watch">Wanna Watch</NavLink>
-                </Nav.Link>
-                <Nav.Link>
-                  <NavLink to="/already-watched">Already Watched</NavLink>
-                </Nav.Link>
-                <Nav.Link>
-                  <NavLink to="/password-change">Password Change</NavLink>
-                </Nav.Link>
+                {LoggedInNavItems.map((item, index) => (
+                  <Nav.Link as="div" key={index}>
+                    <NavLink to={item.to}>{item.displayValue}</NavLink>
+                  </Nav.Link>
+                ))}
                 <Button onClick={handleLogOutButtonClick}>Logout</Button>
               </>
             ) : (
               <>
-                <Nav.Link>
-                  <NavLink to="/register">Register</NavLink>
-                </Nav.Link>
-                <Nav.Link>
-                  <NavLink to="/login">Login</NavLink>
-                </Nav.Link>
+                {LoggedOutNavItems.map((item, index) => (
+                  <Nav.Link as="div" key={index}>
+                    <NavLink to={item.to}>{item.displayValue}</NavLink>
+                  </Nav.Link>
+                ))}
               </>
             )}
           </Nav>

@@ -1,0 +1,143 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Header /> component > user logged in snapshot match 1`] = `
+<div>
+  <nav
+    class="bg-body-tertiary navbar navbar-expand-lg navbar-light"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="navbar-brand"
+      >
+        <a
+          aria-current="page"
+          class="active"
+          href="/"
+        >
+          Entertainment Wishlist
+        </a>
+      </div>
+      <button
+        aria-controls="basic-navbar-nav"
+        aria-label="Toggle navigation"
+        class="navbar-toggler collapsed"
+        type="button"
+      >
+        <span
+          class="navbar-toggler-icon"
+        />
+      </button>
+      <div
+        class="navbar-collapse collapse"
+        id="basic-navbar-nav"
+      >
+        <div
+          class="ms-auto navbar-nav"
+        >
+          <div
+            class="nav-link"
+          >
+            <a
+              class=""
+              href="/wanna-watch"
+            >
+              Wanna Watch
+            </a>
+          </div>
+          <div
+            class="nav-link"
+          >
+            <a
+              class=""
+              href="/already-watched"
+            >
+              Already Watched
+            </a>
+          </div>
+          <div
+            class="nav-link"
+          >
+            <a
+              class=""
+              href="/password-change"
+            >
+              Password Change
+            </a>
+          </div>
+          <button
+            class="btn btn-primary"
+            type="button"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+`;
+
+exports[`<Header /> component > user logged out snapshot match 1`] = `
+<div>
+  <nav
+    class="bg-body-tertiary navbar navbar-expand-lg navbar-light"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="navbar-brand"
+      >
+        <a
+          aria-current="page"
+          class="active"
+          href="/"
+        >
+          Entertainment Wishlist
+        </a>
+      </div>
+      <button
+        aria-controls="basic-navbar-nav"
+        aria-label="Toggle navigation"
+        class="navbar-toggler collapsed"
+        type="button"
+      >
+        <span
+          class="navbar-toggler-icon"
+        />
+      </button>
+      <div
+        class="navbar-collapse collapse"
+        id="basic-navbar-nav"
+      >
+        <div
+          class="ms-auto navbar-nav"
+        >
+          <div
+            class="nav-link"
+          >
+            <a
+              class=""
+              href="/register"
+            >
+              Register
+            </a>
+          </div>
+          <div
+            class="nav-link"
+          >
+            <a
+              class=""
+              href="/login"
+            >
+              Login
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+`;
