@@ -11,8 +11,7 @@ vi.mock("react-toastify");
 
 import * as rt from "react-toastify";
 import apolloClient from "..";
-import { GET_TRENDING } from "../../pages/Home/queries";
-import { GetTrending } from "../../pages/Home/types";
+import { GET_TRENDING } from "../../pages/Home/queries.graphql";
 
 const SUCCESS_RESPONSE_GET_TRENDING_QUERY = {
   data: {
@@ -446,7 +445,7 @@ describe("apollo client", () => {
     vi.mocked(global.fetch).mockResolvedValue({
       text: () => Promise.resolve(JSON.stringify(SUCCESS_RESPONSE_GET_TRENDING_QUERY)),
     });
-    const response = await apolloClient.mutate<GetTrending>({
+    const response = await apolloClient.mutate({
       mutation: GET_TRENDING,
     });
     expect(response).toEqual(SUCCESS_RESPONSE_GET_TRENDING_QUERY);
@@ -461,7 +460,7 @@ describe("apollo client", () => {
     });
 
     try {
-      await apolloClient.mutate<GetTrending>({
+      await apolloClient.mutate({
         mutation: GET_TRENDING,
       });
     } catch (error) {

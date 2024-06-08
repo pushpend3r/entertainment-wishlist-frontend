@@ -1,6 +1,6 @@
-import { gql } from "@apollo/client";
+import { graphql } from "../../gql/gql";
 
-export const UPDATE_PASSWORD = gql`
+export const UPDATE_PASSWORD = graphql(/* GraphQL */ `
   mutation UPDATE_PASSWORD(
     $oldPassword: String
     $newPassword: String
@@ -17,4 +17,4 @@ export const UPDATE_PASSWORD = gql`
       refreshToken
     }
   }
-`;
+`);

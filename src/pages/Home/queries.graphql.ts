@@ -1,6 +1,6 @@
-import { gql } from "@apollo/client";
+import { graphql } from "../../gql";
 
-export const GET_TRENDING = gql`
+export const GET_TRENDING = graphql(/* GraphQL */ `
   query GET_TRENDING {
     trending {
       movies {
@@ -21,4 +21,4 @@ export const GET_TRENDING = gql`
       }
     }
   }
-`;
+`);

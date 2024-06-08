@@ -2,16 +2,16 @@ import { useMutation } from "@apollo/client";
 import { FormEvent, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
-import { REGISTER } from "./queries";
+import { REGISTER } from "./queries.graphql";
 import { useNavigate } from "react-router-dom";
 import { useLocalStorage } from "@uidotdev/usehooks";
 import { showToast } from "../../utils";
-import { Register } from "./types";
 import Button from "../../components/Button";
 import { ROUTES } from "../../enums/routes";
+import { RegisterMutationVariables } from "../../gql/graphql";
 
 function RegisterPage() {
-  const [register, { data }] = useMutation<Register>(REGISTER);
+  const [register, { data }] = useMutation(REGISTER);
 
   const navigate = useNavigate();
 
@@ -25,17 +25,15 @@ function RegisterPage() {
 
     const data = new FormData(event.target as HTMLFormElement);
 
-    const name = data.get("name");
-    const email = data.get("email");
-    const password = data.get("password");
+    const registerMutationVariables = {
+      name: data.get("name"),
+      email: data.get("email"),
+      password: data.get("password"),
+    } as RegisterMutationVariables;
 
     showToast(
       register({
-        variables: {
-          name,
-          email,
-          password,
-        },
+        variables: registerMutationVariables,
       }),
       {
         success: "account created successfully",

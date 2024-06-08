@@ -1,20 +1,21 @@
-import { gql } from "@apollo/client";
+import { graphql } from "../../gql/gql";
 
-export const GET_ALREADY_WATCHED_MEDIA = gql`
+export const GET_WANNA_WATCH_MEDIA = graphql(/* GraphQL */ `
   query GET_WANNA_WATCH_MEDIA {
-    getWatchedMovies {
+    getWishlistedMovies {
       id
       name
       overview
       posterUrl
       releaseDate
     }
-    getWatchedTVShows {
+    getWishlistedTVShows {
       id
       name
       overview
       posterUrl
       startAirDate
+      lastAirDate
     }
   }
-`;
+`);

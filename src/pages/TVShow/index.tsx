@@ -7,7 +7,7 @@ import {
   GET_TVSHOW_DETAILS,
   REMOVE_FROM_WATCHEDLIST,
   REMOVE_FROM_WISHLIST,
-} from "./queries";
+} from "./queries.graphql";
 import useIsUserLoggedIn from "../../hooks/useIsUserLoggedIn";
 
 import Container from "react-bootstrap/Container";
@@ -16,7 +16,6 @@ import Row from "react-bootstrap/Row";
 import Stack from "react-bootstrap/Stack";
 
 import Button from "../../components/Button";
-import { GetTVShowDetails } from "./types";
 import Loader from "../../components/Loader";
 import { ROUTES } from "../../enums/routes";
 
@@ -32,7 +31,7 @@ function TVShowPage() {
     data,
     refetch: refetchTVShowDetails,
     networkStatus,
-  } = useQuery<GetTVShowDetails>(GET_TVSHOW_DETAILS, {
+  } = useQuery(GET_TVSHOW_DETAILS, {
     variables: {
       tvshowId,
     },
@@ -117,9 +116,14 @@ function TVShowPage() {
           style={{ zIndex: -1, backgroundImage: `url(${backdropUrl})` }}
         ></div>
         <Col className="col-12 col-md-4 mb-3">
-          <img src={posterUrl} alt={name} width={"100%"} className="object-fit-cover rounded shadow" />
+          <img
+            src={posterUrl ?? ""}
+            alt={name ?? ""}
+            width={"100%"}
+            className="object-fit-cover rounded shadow"
+          />
           <Row className="p-3">
-            <Button as="a" href={trailerLink} target="__blank">
+            <Button as="a" href={trailerLink ?? ""} target="__blank">
               Trailer Link
             </Button>
           </Row>

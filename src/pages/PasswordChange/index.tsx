@@ -9,16 +9,18 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 
 import Button from "../../components/Button";
-import { UpdatePassword } from "./types";
-import { UPDATE_PASSWORD } from "./queries";
+import { UPDATE_PASSWORD } from "./queries.graphql";
 import withAuth from "../../hocs/withAuth";
 import { ROUTES } from "../../enums/routes";
+import { Update_PasswordMutationVariables } from "../../gql/graphql";
 
 function PasswordChangePage() {
-  const [updatePassword, { data, loading }] = useMutation<UpdatePassword>(UPDATE_PASSWORD);
+  const [updatePassword, { data, loading }] = useMutation(UPDATE_PASSWORD);
 
-  const [accessToken, setAccessToken] = useLocalStorage("accessToken");
-  const [refreshToken, setRefreshToken] = useLocalStorage("refreshToken");
+  const [accessToken, setAccessToken] =
+    useLocalStorage<Update_PasswordMutationVariables["accessToken"]>("accessToken");
+  const [refreshToken, setRefreshToken] =
+    useLocalStorage<Update_PasswordMutationVariables["refreshToken"]>("refreshToken");
 
   const navigate = useNavigate();
 
@@ -27,8 +29,8 @@ function PasswordChangePage() {
 
     const data = new FormData(event.target as HTMLFormElement);
 
-    const oldPassword = data.get("oldPassword");
-    const newPassword = data.get("newPassword");
+    const oldPassword = data.get("oldPassword") as Update_PasswordMutationVariables["oldPassword"];
+    const newPassword = data.get("newPassword") as Update_PasswordMutationVariables["newPassword"];
 
     showToast(updatePassword({ variables: { oldPassword, newPassword, accessToken, refreshToken } }), {
       success: "password updated",

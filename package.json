@@ -4,12 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "test:watch": "NODE_OPTIONS='--no-deprecation' vitest",
+    "test:watch": "npm run graphql-codegen && NODE_OPTIONS='--no-deprecation' vitest",
     "test": "NODE_OPTIONS='--no-deprecation' vitest run",
     "dev": "vite",
-    "build": "npm run test && tsc && vite build",
+    "build": "npm run graphql-codegen && npm run test && tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "graphql-codegen": "graphql-codegen --config graphql-codegen-config.ts",
+    "graphql-codegen:watch": "npm run graphql-codegen -- --watch"
   },
   "dependencies": {
     "@apollo/client": "^3.10.2",
@@ -23,6 +25,9 @@
   "devDependencies": {
     "@babel/preset-env": "^7.24.6",
     "@babel/preset-react": "^7.24.6",
+    "@graphql-codegen/cli": "5.0.2",
+    "@graphql-codegen/client-preset": "4.2.6",
+    "@parcel/watcher": "^2.4.1",
     "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/react": "^15.0.7",
     "@testing-library/user-event": "^14.5.2",

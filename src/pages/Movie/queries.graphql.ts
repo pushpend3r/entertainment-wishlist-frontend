@@ -1,6 +1,6 @@
-import { gql } from "@apollo/client";
+import { graphql } from "../../gql/gql";
 
-export const GET_MOVIE_DETAILS = gql`
+export const GET_MOVIE_DETAILS = graphql(/* GraphQL */ `
   query GET_MOVIE_DETAILS($movieId: Int) {
     getMovie(id: $movieId) {
       id
@@ -30,28 +30,28 @@ export const GET_MOVIE_DETAILS = gql`
       isWishlisted
     }
   }
-`;
+`);
 
-export const ADD_TO_WISHLIST = gql`
-  mutation ADD_TO_WISHLIST($movieId: Int) {
+export const ADD_MOVIE_TO_WISHLIST = graphql(/* GraphQL */ `
+  mutation ADD_MOVIE_TO_WISHLIST($movieId: Int) {
     addMovieToWishlist(movieId: $movieId)
   }
-`;
+`);
 
-export const REMOVE_FROM_WISHLIST = gql`
-  mutation REMOVE_FROM_WISHLIST($movieId: Int) {
+export const REMOVE_MOVIE_FROM_WISHLIST = graphql(/* GraphQL */ `
+  mutation REMOVE_MOVIE_FROM_WISHLIST($movieId: Int) {
     removeMovieFromWishlist(movieId: $movieId)
   }
-`;
+`);
 
-export const ADD_TO_WATCHEDLIST = gql`
-  mutation ADD_TO_WATCHEDLIST($movieId: Int) {
+export const ADD_MOVIE_TO_WATCHEDLIST = graphql(/* GraphQL */ `
+  mutation ADD_MOVIE_TO_WATCHEDLIST($movieId: Int) {
     addMovieToWatchedlist(movieId: $movieId)
   }
-`;
+`);
 
-export const REMOVE_FROM_WATCHEDLIST = gql`
-  mutation REMOVE_FROM_WATCHEDLIST($movieId: Int) {
+export const REMOVE_MOVIE_FROM_WATCHEDLIST = graphql(/* GraphQL */ `
+  mutation REMOVE_MOVIE_FROM_WATCHEDLIST($movieId: Int) {
     removeMovieFromWatchedlist(movieId: $movieId)
   }
-`;
+`);

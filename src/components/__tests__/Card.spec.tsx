@@ -11,7 +11,7 @@ describe("<Card />", () => {
     const overview = "someoverview";
 
     const { container } = render(
-      <Card onClick={emptyFunc} name={title} posterUrl={image} overview={overview} />
+      <Card onClick={emptyFunc} name={title} posterUrl={image} overview={overview} id={0} />
     );
     expect(container).toMatchSnapshot();
   });
@@ -19,7 +19,7 @@ describe("<Card />", () => {
   test("show release year in title", () => {
     const releaseDate = "2023-01-01";
     const releaseYear = new Date(releaseDate).getFullYear();
-    render(<Card onClick={emptyFunc} releaseDate={releaseDate} />);
+    render(<Card onClick={emptyFunc} releaseDate={releaseDate} id={0} />);
     const title = screen.getByRole("heading", { name: new RegExp(String(releaseYear)) });
     expect(title).toBeInTheDocument();
   });
@@ -27,7 +27,7 @@ describe("<Card />", () => {
   test("show start air year in title", () => {
     const startAirDate = "2023-01-01";
     const startAirYear = new Date(startAirDate).getFullYear();
-    render(<Card onClick={emptyFunc} startAirDate={startAirDate} />);
+    render(<Card onClick={emptyFunc} startAirDate={startAirDate} id={0} />);
     const title = screen.getByRole("heading", { name: new RegExp(String(startAirYear)) });
     expect(title).toBeInTheDocument();
   });
@@ -35,7 +35,7 @@ describe("<Card />", () => {
   test("show end air year in title", () => {
     const lastAirDate = "2023-01-01";
     const lastAirYear = new Date(lastAirDate).getFullYear();
-    render(<Card onClick={emptyFunc} lastAirDate={lastAirDate} />);
+    render(<Card onClick={emptyFunc} lastAirDate={lastAirDate} id={0} />);
     const title = screen.getByRole("heading", { name: new RegExp(String(lastAirYear)) });
     expect(title).toBeInTheDocument();
   });
@@ -47,7 +47,7 @@ describe("<Card />", () => {
     const releaseDate = "2024-01-01";
     const releaseYear = new Date(releaseDate).getFullYear();
 
-    render(<Card onClick={emptyFunc} startAirDate={startAirDate} releaseDate={releaseDate} />);
+    render(<Card onClick={emptyFunc} startAirDate={startAirDate} releaseDate={releaseDate} id={0} />);
     const title = screen.getByRole("heading", { name: new RegExp(String(releaseYear)) });
 
     expect(title).not.toHaveTextContent(new RegExp(String(startAirYear)));

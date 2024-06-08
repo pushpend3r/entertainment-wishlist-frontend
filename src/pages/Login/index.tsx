@@ -7,15 +7,15 @@ import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 import { useLocalStorage } from "@uidotdev/usehooks";
 
-import { LOGIN } from "./queries";
+import { LOGIN } from "./queries.graphql";
 import { showToast } from "../../utils";
-import { Login } from "./types";
 import Loader from "../../components/Loader";
 import Button from "../../components/Button";
 import { ROUTES } from "../../enums/routes";
+import { LoginInput } from "../../gql/graphql";
 
 function LoginPage() {
-  const [login, { data, loading }] = useMutation<Login>(LOGIN);
+  const [login, { data, loading }] = useMutation(LOGIN);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_accessToken, setAccessToken] = useLocalStorage("accessToken");
@@ -29,8 +29,8 @@ function LoginPage() {
 
     const data = new FormData(event.target as HTMLFormElement);
 
-    const email = data.get("email");
-    const password = data.get("password");
+    const email = data.get("email") as LoginInput["email"];
+    const password = data.get("password") as LoginInput["password"];
 
     showToast(login({ variables: { email, password } }), {
       success: "logged in",

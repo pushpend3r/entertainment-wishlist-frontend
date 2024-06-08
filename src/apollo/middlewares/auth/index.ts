@@ -3,12 +3,13 @@ import { onError } from "@apollo/client/link/error";
 import { DefaultContext, Observable, from, fromPromise } from "@apollo/client";
 
 import apolloClient from "../..";
-import { TokenType, Tokens } from "../../../types";
-import { GET_NEW_TOKENS } from "./queries";
+import { TokenType } from "../../../types";
+import { GET_NEW_TOKENS } from "./queries.graphql";
 import { FailedOperation, GetNewTokens } from "./types";
 import { getToken } from "../../../utils";
 import router from "../../../router";
 import { ROUTES } from "../../../enums/routes";
+import { Tokens } from "../../../gql/graphql";
 
 let isRefreshing = false;
 let failedOperations: FailedOperation[] = [];

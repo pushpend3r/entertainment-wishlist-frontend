@@ -1,8 +1,8 @@
 import BCard from "react-bootstrap/Card";
-import { Movie, TVShow } from "../types";
+import { TvShow, Movie } from "../gql/graphql";
 
-interface Props extends Partial<Movie & TVShow> {
-  onClick: (id: Movie["id"] | TVShow["id"]) => void;
+interface Props extends Omit<TvShow, "__typename">, Omit<Movie, "__typename"> {
+  onClick: (id: Movie["id"] | TvShow["id"]) => void;
 }
 
 function Card({
@@ -24,9 +24,11 @@ function Card({
 
   return (
     <BCard style={{ cursor: "pointer" }} onClick={() => onClick(id!)}>
-      <BCard.Img variant="top" src={posterUrl} className="rounded" />
+      <BCard.Img variant="top" src={posterUrl ?? "https://placehold.co/600x400"} className="rounded" />
       <BCard.Body>
-        <BCard.Title as="h2" className="h5">{title}</BCard.Title>
+        <BCard.Title as="h2" className="h5">
+          {title}
+        </BCard.Title>
         <BCard.Text
           style={{
             overflow: "hidden",
@@ -35,7 +37,7 @@ function Card({
             WebkitLineClamp: 3,
             WebkitBoxOrient: "vertical",
           }}
-          title={overview}
+          title={overview ?? ""}
           as={"p"}
         >
           {overview}

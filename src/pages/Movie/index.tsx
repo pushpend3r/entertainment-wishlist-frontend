@@ -10,12 +10,11 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import {
   GET_MOVIE_DETAILS,
-  ADD_TO_WATCHEDLIST,
-  REMOVE_FROM_WATCHEDLIST,
-  ADD_TO_WISHLIST,
-  REMOVE_FROM_WISHLIST,
-} from "./queries";
-import { GetMovieDetails } from "./types";
+  ADD_MOVIE_TO_WATCHEDLIST,
+  REMOVE_MOVIE_FROM_WATCHEDLIST,
+  ADD_MOVIE_TO_WISHLIST,
+  REMOVE_MOVIE_FROM_WISHLIST,
+} from "./queries.graphql";
 import useIsUserLoggedIn from "../../hooks/useIsUserLoggedIn";
 import Button from "../../components/Button";
 import Loader from "../../components/Loader";
@@ -33,18 +32,18 @@ function MoviePage() {
     data,
     refetch: refetchMovieDetails,
     networkStatus,
-  } = useQuery<GetMovieDetails>(GET_MOVIE_DETAILS, {
+  } = useQuery(GET_MOVIE_DETAILS, {
     variables: {
       movieId,
     },
     notifyOnNetworkStatusChange: true,
   });
 
-  const [addToWishlist, addToWishlistResponse] = useMutation(ADD_TO_WISHLIST);
-  const [removeFromWishlist, removeFromWishlistResponse] = useMutation(REMOVE_FROM_WISHLIST);
+  const [addToWishlist, addToWishlistResponse] = useMutation(ADD_MOVIE_TO_WISHLIST);
+  const [removeFromWishlist, removeFromWishlistResponse] = useMutation(REMOVE_MOVIE_FROM_WISHLIST);
 
-  const [addToWatchedList, addToWatchedListResponse] = useMutation(ADD_TO_WATCHEDLIST);
-  const [removeFromWatchedList, removeFromWatchedListResponse] = useMutation(REMOVE_FROM_WATCHEDLIST);
+  const [addToWatchedList, addToWatchedListResponse] = useMutation(ADD_MOVIE_TO_WATCHEDLIST);
+  const [removeFromWatchedList, removeFromWatchedListResponse] = useMutation(REMOVE_MOVIE_FROM_WATCHEDLIST);
 
   useEffect(() => {
     if (!data) return;
@@ -119,9 +118,14 @@ function MoviePage() {
           style={{ zIndex: -1, backgroundImage: `url(${backdropUrl})` }}
         ></div>
         <Col className="col-12 col-md-4 mb-3">
-          <img src={posterUrl} alt={name} width={"100%"} className="object-fit-cover rounded shadow" />
+          <img
+            src={posterUrl ?? ""}
+            alt={name ?? ""}
+            width={"100%"}
+            className="object-fit-cover rounded shadow"
+          />
           <Row className="p-3">
-            <Button as="a" href={trailerLink} target="__blank">
+            <Button as="a" href={trailerLink ?? ""} target="__blank">
               Trailer Link
             </Button>
           </Row>
