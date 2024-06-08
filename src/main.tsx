@@ -1,15 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { ApolloProvider } from "@apollo/client";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import "./global.css";
 
 import apolloClient from "./apollo";
-import routes from "./routes.tsx";
 import { ToastContainer } from "react-toastify";
-
-export const router = createBrowserRouter(routes);
+import router from "./router";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

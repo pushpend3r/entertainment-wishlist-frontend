@@ -7,7 +7,7 @@ import { TokenType, Tokens } from "../../../types";
 import { GET_NEW_TOKENS } from "./queries";
 import { FailedOperation, GetNewTokens } from "./types";
 import { getToken } from "../../../utils";
-import { router } from "../../../main";
+import router from "../../../router";
 import { ROUTES } from "../../../enums/routes";
 
 let isRefreshing = false;
