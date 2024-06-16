@@ -5,7 +5,3 @@ export interface FailedOperation {
   operation: Operation;
   settlePromiseWith: (value: Tokens | null) => void;
 }
-
-export interface GetNewTokens {
-  getNewTokens: Tokens;
-}

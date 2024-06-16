@@ -5,7 +5,7 @@ import { DefaultContext, Observable, from, fromPromise } from "@apollo/client";
 import apolloClient from "../..";
 import { TokenType } from "../../../types";
 import { GET_NEW_TOKENS } from "./queries.graphql";
-import { FailedOperation, GetNewTokens } from "./types";
+import { FailedOperation } from "./types";
 import { getToken } from "../../../utils";
 import router from "../../../router";
 import { ROUTES } from "../../../enums/routes";
@@ -18,14 +18,14 @@ const getNewTokens = async (): Promise<Tokens> => {
   const refreshToken = getToken(TokenType.REFRESH_TOKEN);
 
   try {
-    const { data } = await apolloClient.mutate<GetNewTokens>({
+    const { data } = await apolloClient.mutate({
       mutation: GET_NEW_TOKENS,
       variables: {
         refreshToken,
       },
     });
 
-    const tokens = data!.getNewTokens;
+    const tokens = data!.getNewTokens!;
 
     localStorage.setItem(TokenType.ACCESS_TOKEN, JSON.stringify(tokens.accessToken));
     localStorage.setItem(TokenType.REFRESH_TOKEN, JSON.stringify(tokens.refreshToken));
@@ -48,7 +48,7 @@ const getNewTokens = async (): Promise<Tokens> => {
 const handle401Errors = onError((error) => {
   const { graphQLErrors, forward, operation } = error;
 
-  if (operation.operationName === "LOGIN") return;
+  if (operation.operationName === "LOGIN" || operation.operationName === "GET_NEW_TOKENS") return;
 
   // skip non 401 errors
   if (graphQLErrors?.[0]?.extensions?.code !== "UNAUTHENTICATED") return;
@@ -69,8 +69,7 @@ const handle401Errors = onError((error) => {
         failedOperations.forEach((item) => item.settlePromiseWith(tokens));
         return tokens;
       })
-      .catch((error) => {
-        console.error(error);
+      .catch(() => {
         failedOperations.forEach((item) => item.settlePromiseWith(null));
         return null;
       })
